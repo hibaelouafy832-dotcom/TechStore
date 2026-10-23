@@ -4,6 +4,18 @@ function formatPrice(price) {
     return new Intl.NumberFormat("fr-FR").format(price) + " DH";
 }
 
+function getStatusClass(status) {
+    if (status === "Livree") {
+        return "bg-success";
+    } else if (status === "En attente") {
+        return "bg-warning text-dark";
+    } else if (status === "Annulee") {
+        return "bg-danger";
+    }
+
+    return "bg-secondary";
+}
+
 export function renderIndicators(customers, products, orders) {
     document.querySelector("#total-clients").textContent = customers.length;
     document.querySelector("#total-produits").textContent = products.length;
@@ -56,6 +68,7 @@ export function renderOrders(orders, customers, products) {
     orders.forEach(function(order) {
         const customer = getCustomer(order, customers);
         const total = getOrderTotal(order, products);
+        const statusClass = getStatusClass(order.status);
 
         const card = document.createElement("div");
         card.className = "col-md-6 col-lg-4";
@@ -65,7 +78,10 @@ export function renderOrders(orders, customers, products) {
                 <h5 class="card-title">Commande #${order.id}</h5>
                 <p><strong>Client :</strong> ${customer ? customer.name : "Inconnu"}</p>
                 <p><strong>Date :</strong> ${order.date}</p>
-                <p><strong>Statut :</strong> ${order.status}</p>
+                <p>
+                    <strong>Statut :</strong>
+                    <span class="badge ${statusClass}">${order.status}</span>
+                </p>
                 <p><strong>Total :</strong> ${formatPrice(total)}</p>
                 <button class="btn btn-primary details-btn" data-id="${order.id}">
                     Voir les détails
@@ -86,7 +102,10 @@ export function renderDetails(order, customers, products) {
         <p><strong>Client :</strong> ${customer ? customer.name : "Inconnu"}</p>
         <p><strong>Ville :</strong> ${customer ? customer.city : "Inconnue"}</p>
         <p><strong>Date :</strong> ${order.date}</p>
-        <p><strong>Statut :</strong> ${order.status}</p>
+        <p>
+            <strong>Statut :</strong>
+            <span class="badge ${getStatusClass(order.status)}">${order.status}</span>
+        </p>
 
         <div class="table-responsive">
             <table class="table table-bordered">
