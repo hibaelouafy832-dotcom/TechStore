@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f2ea;
+    color: #35483e;
+}
+
+.navbar {
+    background: linear-gradient(90deg, #35483e, #52695a) !important;
+    padding: 18px 0;
+    box-shadow: 0 3px 12px rgba(35, 55, 42, 0.12);
+}
+
+.navbar-brand {
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: #f5f2ea !important;
+}
+
+header {
+    padding-top: 55px !important;
+    padding-bottom: 35px !important;
+}
+
+header h1 {
+    font-size: 38px;
+    font-weight: bold;
+    color: #35483e;
+    margin-bottom: 12px;
+}
+
+header p {
+    font-size: 17px;
+    color: #7a847b;
+}
+
+#indicateurs .card {
+    border: 1px solid #e7e2d7;
+    border-radius: 14px;
+    background-color: #fffdf8;
+    min-height: 120px;
+    box-shadow: 0 4px 15px rgba(53, 72, 62, 0.07);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#indicateurs .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 22px rgba(53, 72, 62, 0.13);
+}
+
+#indicateurs h5 {
+    font-size: 15px;
+    color: #7a847b;
+    margin-bottom: 12px;
+}
+
+#indicateurs p {
+    font-size: 27px;
+    font-weight: bold;
+    color: #667f6b;
+    margin-bottom: 0;
+}
+
+main > .card {
+    border: 1px solid #e7e2d7;
+    border-radius: 14px;
+    background-color: #fffdf8;
+    box-shadow: 0 4px 15px rgba(53, 72, 62, 0.05);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #35483e;
+}
+
+.form-control,
+.form-select {
+    min-height: 45px;
+    border: 1px solid #d9ded5;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #35483e;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #879b86;
+    box-shadow: 0 0 0 3px rgba(135, 155, 134, 0.18);
+}
+
+section h2 {
+    font-size: 25px;
+    font-weight: bold;
+    color: #35483e;
+}
+
+#liste-commandes .card {
+    height: 100%;
+    border: 1px solid #e7e2d7;
+    border-radius: 14px;
+    background-color: #fffdf8;
+    box-shadow: 0 4px 15px rgba(53, 72, 62, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#liste-commandes .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(53, 72, 62, 0.12);
+}
+
+#liste-commandes .card-title {
+    color: #35483e;
+    font-weight: bold;
+}
+
+#liste-commandes .btn-primary {
+    background-color: #667f6b;
+    border-color: #667f6b;
+    border-radius: 8px;
+    padding: 9px 16px;
+}
+
+#liste-commandes .btn-primary:hover {
+    background-color: #35483e;
+    border-color: #35483e;
+}
+
+#message-erreur {
+    border-radius: 10px;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #fffdf8;
+}
+
+.modal-header {
+    background-color: #35483e;
+    color: #f5f2ea;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+footer {
+    background: linear-gradient(90deg, #35483e, #52695a) !important;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #f5f2ea;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 29px;
+    }
+
+    header p {
+        font-size: 15px;
+    }
+
+    section h2 {
+        font-size: 22px;
+    }
+
+    #indicateurs p {
+        font-size: 23px;
+    }
+}
