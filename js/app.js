@@ -57,6 +57,18 @@ document.querySelector("#filtre-categorie").addEventListener("change", function(
     render();
 });
 
+document.querySelector("#reset-filtres").addEventListener("click", function() {
+    search = "";
+    status = "";
+    category = "";
+
+    document.querySelector("#recherche").value = "";
+    document.querySelector("#filtre-statut").value = "";
+    document.querySelector("#filtre-categorie").value = "";
+
+    render();
+});
+
 document.querySelector("#liste-commandes").addEventListener("click", function(event) {
     const button = event.target.closest(".details-btn");
 
