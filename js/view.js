@@ -1,5 +1,9 @@
 import { getCustomer, getProduct, getOrderTotal } from "./selectors.js";
 
+function formatPrice(price) {
+    return new Intl.NumberFormat("fr-FR").format(price) + " DH";
+}
+
 export function renderIndicators(customers, products, orders) {
     document.querySelector("#total-clients").textContent = customers.length;
     document.querySelector("#total-produits").textContent = products.length;
@@ -13,7 +17,7 @@ export function renderIndicators(customers, products, orders) {
         }
     });
 
-    document.querySelector("#montant-total").textContent = total + " DH";
+    document.querySelector("#montant-total").textContent = formatPrice(total);
 }
 
 export function renderCategories(products) {
@@ -62,7 +66,7 @@ export function renderOrders(orders, customers, products) {
                 <p><strong>Client :</strong> ${customer ? customer.name : "Inconnu"}</p>
                 <p><strong>Date :</strong> ${order.date}</p>
                 <p><strong>Statut :</strong> ${order.status}</p>
-                <p><strong>Total :</strong> ${total} DH</p>
+                <p><strong>Total :</strong> ${formatPrice(total)}</p>
                 <button class="btn btn-primary details-btn" data-id="${order.id}">
                     Voir les détails
                 </button>
@@ -104,9 +108,9 @@ export function renderDetails(order, customers, products) {
             html += `
                 <tr>
                     <td>${product.name}</td>
-                    <td>${product.price} DH</td>
+                    <td>${formatPrice(product.price)}</td>
                     <td>${item.quantity}</td>
-                    <td>${product.price * item.quantity} DH</td>
+                    <td>${formatPrice(product.price * item.quantity)}</td>
                 </tr>
             `;
         }
@@ -117,7 +121,7 @@ export function renderDetails(order, customers, products) {
             </table>
         </div>
         <h5 class="text-end">
-            Total : ${getOrderTotal(order, products)} DH
+            Total : ${formatPrice(getOrderTotal(order, products))}
         </h5>
     `;
 
